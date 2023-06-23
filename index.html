@@ -1,0 +1,34 @@
+  <!DOCTYPE html>
+<html>
+  <body>
+  <div id="lwcLightning"></div>   
+    </body>
+    <script src="https://infa--chaitanya.sandbox.my.salesforce.com/lightning/lightning.out.js" type="text/javascript"></script> //domainName needs to be dynamic
+    <script>
+        //event handler to handle the action selection
+        document.addEventListener("handleSelect", function(event){
+            console.log('vf event data window listener => ', event.detail);
+        });
+
+        const appName = 'c:EC_ActionAuthor';
+        const componentName = 'c:eC_ActionsListPage'; 
+        const salesforcedomain = 'https://infa--chaitanya.sandbox.my.salesforce.com'; // Endpoint for Salesforce, Environment dependent
+        // SIT : https://infa--sit.sandbox.my.salesforce.com
+        // UAT : https://infa--uat.sandbox.my.salesforce.com
+        // Prod : https://infa.my.salesforce.com
+        const targetElement = document.querySelector('#lwcLightning'); //dom selector to insert the component
+        const authToken = '00D8I0000002KkJ!ARAAQAZ21aSSDkpBIbF3Yg9SsL89ZWKaFtF16PiqulKqsOi2ajLjv6KA14Fx2FSe0znIQhTm3IBaCHrliKwSMy5cKcWLiCH.'; //auth token that is received from oAuth
+        const selectedActionId=''; //actionId to be preselected
+
+        $Lightning.use(appName, function() {
+                $Lightning.createComponent(
+                    componentName,
+                    {actionId:selectedActionId},
+                    targetElement
+                );
+            },
+            salesforcedomain,
+            authToken
+        );
+    </script>
+</html>
