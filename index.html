@@ -17,7 +17,7 @@
         // UAT : https://infa--uat.sandbox.my.salesforce.com
         // Prod : https://infa.my.salesforce.com
         const targetElement = document.querySelector('#lwcLightning'); //dom selector to insert the component
-       // const authToken = ''; //auth token that is received from oAuth
+        const authToken = '00D8I0000002KkJ!ARAAQAZ21aSSDkpBIbF3Yg9SsL89ZWKaFtF16PiqulKqsOi2ajLjv6KA14Fx2FSe0znIQhTm3IBaCHrliKwSMy5cKcWLiCH.'; //auth token that is received from oAuth
         const selectedActionId=''; //actionId to be preselected
 
         $Lightning.use(appName, function() {
@@ -27,8 +27,8 @@
                     targetElement
                 );
             }
-           // salesforcedomain,
-            //authToken
+            salesforcedomain,
+            authToken
         );
     </script>
 </html>
